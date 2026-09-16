@@ -95,6 +95,7 @@ def display_tree(model, feature_names):
         filled=True,
         rounded=True,
         fontsize=8
+
     )
 
     plt.title(
@@ -121,6 +122,7 @@ def main():
 
     print("\nOriginal Dataset Columns:")
     print(data.columns.tolist())
+
 
 
     # =====================================================
