@@ -14,24 +14,29 @@ from src.data.load_data import load_data
 # ---------------------------------------------------------
 # 1. SPLIT DATA
 # ---------------------------------------------------------
-def split_data(df):
+def split_data(df, target_column, drop_columns=None, stratify=False):
 
-    X = df.drop(columns=["PlacementStatus"])
-    y = df["PlacementStatus"]
+    if drop_columns is None:
+        drop_columns = []
+
+    X = df.drop(columns=drop_columns + [target_column])
+    y = df[target_column]
+
+    stratify_value = y if stratify else None
 
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
         test_size=0.2,
         random_state=42,
-        stratify=y
+        stratify=stratify_value
     )
 
     return X_train, X_test, y_train, y_test
 
 
 # ---------------------------------------------------------
-# 2. IDENTIFY NUMERICAL AND CATEGORICAL FEATURES
+# 2. IDENTIFY FEATURES
 # ---------------------------------------------------------
 def identify_features(X):
 
@@ -129,12 +134,10 @@ def one_hot_encode_data(
         X_test[one_hot_features]
     )
 
-    # Get encoded column names
     encoded_columns = encoder.get_feature_names_out(
         one_hot_features
     )
 
-    # Convert encoded arrays to DataFrames
     train_encoded_df = pd.DataFrame(
         train_encoded,
         columns=encoded_columns,
@@ -197,12 +200,10 @@ def ordinal_encode_data(
         X_test[ordinal_features]
     )
 
-    # Get encoded column names
     encoded_columns = encoder.get_feature_names_out(
         ordinal_features
     )
 
-    # Convert encoded arrays to DataFrames
     train_encoded_df = pd.DataFrame(
         train_encoded,
         columns=encoded_columns,
@@ -254,7 +255,10 @@ if __name__ == "__main__":
     # -----------------------------------------------------
     # SPLIT DATA
     # -----------------------------------------------------
-    X_train, X_test, y_train, y_test = split_data(df)
+    X_train, X_test, y_train, y_test = split_data(
+        df,
+        target_column="PlacementStatus"
+    )
 
     print("\nTraining Shape:")
     print(X_train.shape)
@@ -278,7 +282,6 @@ if __name__ == "__main__":
     # -----------------------------------------------------
     # REMOVE STUDENT ID
     # -----------------------------------------------------
-    # StudentID is an identifier, not a useful numerical feature.
     if "StudentID" in X_train.columns:
 
         X_train = X_train.drop(
@@ -289,8 +292,7 @@ if __name__ == "__main__":
             columns=["StudentID"]
         )
 
-        if "StudentID" in numerical_features:
-            numerical_features.remove("StudentID")
+        numerical_features.remove("StudentID")
 
     # -----------------------------------------------------
     # DEFINE ENCODING FEATURES
@@ -308,8 +310,6 @@ if __name__ == "__main__":
     ]
 
     # Ordinal categorical features
-    # Assumption:
-    # Low < Medium < High
     ordinal_features = [
         "CGPA_Tier"
     ]
@@ -333,7 +333,7 @@ if __name__ == "__main__":
     print("\nMissing values handling completed.")
 
     # -----------------------------------------------------
-    # STANDARDIZE NUMERICAL FEATURES
+    # STANDARDIZATION
     # -----------------------------------------------------
     X_train, X_test, scaler = standardize(
         X_train,
