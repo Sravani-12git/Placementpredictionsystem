@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcfe3101-2040-43cd-aae7-88160d4c8283" name="Changes" comment="Project structure is updated">
-      <change afterPath="$PROJECT_DIR$/src/data/MLmodels/Decision_tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/MLmodels/Random_Forest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/MLmodels/Random_tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/MLmodels/gradient_boosting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/MLmodels/kmeans++.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/MLmodels/kmeans_elbow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/MLmodels/regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Placementpredictionsystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Placementpredictionsystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/preprocessed_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/preprocessed_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/preprocessed_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/preprocessed_train.csv" afterDir="false" />
-    </list>
+    <list default="true" id="dcfe3101-2040-43cd-aae7-88160d4c8283" name="Changes" comment="Project structure is updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -288,7 +275,23 @@
       <option name="project" value="LOCAL" />
       <updated>1787123878958</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Project structure is updated">
+      <option name="closed" value="true" />
+      <created>1789541982624</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1789541982624</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Project structure is updated">
+      <option name="closed" value="true" />
+      <created>1789542152529</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1789542152529</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
